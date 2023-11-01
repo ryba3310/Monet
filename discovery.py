@@ -22,7 +22,7 @@ def get_my_ip():
     return IP
 
 def get_hosts(network):
-    ans, unans = arping(network, timeout=3)     # any send based function returns couple of answered ad unanswared pkts, and answared pkts are pairs of sent-recived
+    ans, unans = arping(network, timeout=3, verbose=0)     # any send based function returns couple of answered ad unanswared pkts, and answared pkts are pairs of sent-recived
     return ans.res
 
 
@@ -56,11 +56,10 @@ def main():
                 hostname = socket.gethostbyaddr(ip_addr)
             except (socket.error, socket.gaierror):
                 hostname = (str(ip_addr), [], str(ip_addr))
-            print(ip_addr + " ----- " + mac_addr + "-----" + str(hostname[0]))
             host = {
                 "mac": mac_addr,
                 "ip": ip_addr,
-                "hostname": hostname,
+                "hostname": hostname[0],
                 "time": discovery_time}
             hosts.append(host)
         update_hosts(hosts)     # Sending list of dicts as JSON

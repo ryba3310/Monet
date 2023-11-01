@@ -11,7 +11,7 @@ Monet is network discovery and monitoring tool utilizing RESTful AIPs for gather
 
 ```sh
 # To run server
-./server.py
+flask --app server.py run
 
 # To run host discovery
 ./discovery.py
@@ -36,7 +36,9 @@ git clone https://github.com/ryba3310/Monet.git
 
 - ✅ Create "client" which does network discovery and sends data to server
 
-- ⚠️  Create data diplay which querries server for data
+- ✅  Create data diplay which querries server for data
+
+- ⚠️  Format display table
 
 - ⚠️  Consider PUT method for idempotency
 
